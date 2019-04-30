@@ -1,0 +1,14 @@
+{
+	"disableAutoUpdate": false,
+	"name": "Generic-GPK-Loader",
+	"category": "client",
+	"description": "Loads any GPK(s) through Tera-Toolbox.\nStart Toolbox, then place GPK files in [toolbox]\\mods\\Generic-GPK-Loader\\Put-GPKs-Here",
+	"author": "HakuryuuDom",
+	"options": {
+		"guiName": "Client: Generic GPK Loader",
+        "niceName": "GPK Loader"
+	},
+	"servers": [
+		"https://raw.githubusercontent.com/HakuryuuDom/generic-gpk-loader/master/"
+	]
+}
