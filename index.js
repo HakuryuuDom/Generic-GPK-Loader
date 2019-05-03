@@ -5,7 +5,7 @@ module.exports = function GPKLoader(mod) {
     if(!fs.existsSync(dir)) fs.mkdirSync(dir);
     const files = fs.readdirSync(dir, {withFileTypes: true});
     files.forEach(file => {
-        if(file.name.slice(-3) !== 'gpk') return;
+        if(path.extname(file.name) !== '.gpk') return;
         mod.installGPK(path.join('Put-GPKs-Here', file.name));
     });
 }
