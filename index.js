@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
-module.exports = function GPKLoader(mod) {
-    const dir = path.join(__dirname, 'Put-GPKs-Here');
-    if(!fs.existsSync(dir)) fs.mkdirSync(dir);
-    const files = fs.readdirSync(dir, {withFileTypes: true});
-    files.forEach(file => {
-        if(path.extname(file.name) !== '.gpk') return;
-        mod.log(`Installing GPK Mod: ${file.name}`)
-        mod.installGPK(path.join('Put-GPKs-Here', file.name));
-    });
-}
+
+exports.ClientMod = class {
+    install(installer) {
+        const dir = path.join(__dirname, 'Put-GPKs-Here');
+        if(fs.existsSync(dir))
+            fs.readdirSync(dir, {withFileTypes: true})
+              .filter(file => path.extname(file.name) === '.gpk')
+              .forEach(file => installer.gpk(path.join('Put-GPKs-Here', file.name)));
+    }
+}; 
